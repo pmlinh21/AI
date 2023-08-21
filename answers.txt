@@ -1,0 +1,79 @@
+husband(X, princess_anne)
+X = timothy_laurence.
+
+mother(X, prince_harry)
+X = princess_diana.
+
+grandparent(X, princess_beatrice)
+X = queen_elizabeth_ii ;
+X = prince_phillip.
+
+sibling(X, james_viscount_severn)
+X = lady_louise_mountbatten_windsor.
+
+uncle(X, peter_phillips)
+X = prince_charles ;
+X = prince_andrew ;
+X = prince_edward.
+
+child(X, prince_phillip)
+X = princess_anne ;
+X = prince_charles ;
+X = prince_andrew ;
+X = prince_edward.
+
+divorced(X, Y)
+X = princess_diana, Y = prince_charles ;
+X = prince_andrew, Y = sarah_ferguson ;
+X = prince_charles, Y = princess_diana ;
+X = captain_mark_phillips, Y = princess_anne ;
+X = princess_anne, Y = captain_mark_phillips ;
+X = sarah_ferguson, Y = prince_andrew.
+
+granddaughter(X, queen_elizabeth_ii)
+X = princess_eugenie ;
+X = princess_beatrice ;
+X = lady_louise_mountbatten_windsor ;
+X = zara_phillips.
+
+niece(X, prince_edward)
+X = princess_eugenie ;
+X = princess_beatrice ;
+X = zara_phillips.
+
+divorced(prince_andrew, X)
+X = sarah_ferguson.
+
+female(mia_grace_tindall)
+true.
+
+aunt(zara_phillips, prince_george)
+false.
+
+wife(princess_diana, prince_charles)
+false.
+
+grandchild(princess_charlotte, princess_anne)
+false.
+
+grandson(zara_phillips, queen_elizabeth_ii)
+false.
+
+married(kate_middleton, prince_william)
+true.
+
+divorced(queen_eliabeth_ii, prince_phillip)
+false.
+
+daughter(princess_eugenie, sarah_ferguson)
+true.
+
+son(prince_george, prince_harry)
+false.
+
+uncle(timothy_laurence, prince_harry)
+true.
+
+niece(savannah_phillips, mike_tindall)
+true.
+

@@ -57,7 +57,7 @@ class KnowledgeBase:
 
     def get_potential_facts(self, rule):
         facts = []
-        print("rule:",rule, "\n", rule.operators)
+        # print("rule:",rule, "\n", rule.operators)
         for fact in self.facts:
             # print("*")
             # print(fact)

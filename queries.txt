@@ -1,1 +1,21 @@
+husband(X, princess_anne).
+mother(X, prince_harry).
+grandparent(X, princess_beatrice).
+sibling(X, james_viscount_severn).
+uncle(X, peter_phillips).
+child(X, prince_phillip).
+divorced(X, Y).
+granddaughter(X, queen_elizabeth_ii).
+niece(X, prince_edward).
+divorced(prince_andrew, X).
+female(mia_grace_tindall).
+aunt(zara_phillips, prince_george).
+wife(princess_diana, prince_charles).
+grandchild(princess_charlotte, princess_anne).
+grandson(zara_phillips, queen_elizabeth_ii).
+married(kate_middleton, prince_william).
+divorced(queen_eliabeth_ii, prince_phillip).
 daughter(princess_eugenie, sarah_ferguson).
+son(prince_george, prince_harry).
+uncle(timothy_laurence, prince_harry).
+niece(savannah_phillips, mike_tindall).

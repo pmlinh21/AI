@@ -93,7 +93,7 @@ grandfather(X, Y):- male(X), grandparent(X, Y).
 grandchild(X, Y):- grandparent(Y, X).
 grandson(X, Y):- male(X), grandchild(X, Y).
 granddaughter(X, Y):- female(X), grandchild(X, Y).
-sibling(X, Y):- mother(Z, X), mother(Z, Y), X \= Y.
+sibling(X, Y):- mother(Z, X), mother(Z, Y).
 brother(X, Y):- male(X), sibling(X, Y).
 sister(X, Y):- female(X), sibling(X, Y).
 aunt(X, Y):- female(X), sibling(X, Z), parent(Z, Y).

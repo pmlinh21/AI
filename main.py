@@ -20,8 +20,8 @@ def main():
         KnowledgeBase.populate(kb, sentences)
 
     print('Initialized knowledge base from {}.'.format(input_file))
-    # for fact in kb.facts:
-    #     print(fact)
+    # for rule in kb.rules:
+    #     print(rule)
 
 
     with open(query_file, 'r') as f_query:
@@ -32,14 +32,14 @@ def main():
                 substitutions = set(kb.query(alpha))
                 print(alpha_str)
                 
-                print(substitutions)
-                print()
-                # subst_str = ' ;\n'.join([str(subst) for subst in substitutions]) + '.\n'
+                # print(substitutions)
+                # print()
+                subst_str = ' ;\n'.join([str(subst) for subst in substitutions]) + '.\n'
                 # print(subst_str)
-                # f_output.write(alpha_str + '\n')
-                # f_output.write(subst_str + '\n')
+                f_output.write(alpha_str + '\n')
+                f_output.write(subst_str + '\n')
 
-    print('Query results from {} written to {}.'.format(query_file, output_file))
+    # print('Query results from {} written to {}.'.format(query_file, output_file))
 
 if __name__ == "__main__":
     main()

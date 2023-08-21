@@ -45,7 +45,7 @@ class Fact:
             op = parts[0]
             args = [arg.strip() for arg in parts[1].split(',')]
         else:
-            #fact_str = fact_str.strip().rstrip('.').replace(' ', '')
+            fact_str = fact_str.strip().rstrip('.').replace(' ', '')
             op_start = 0
             # print("Parsing fact_str:", fact_str)
             #sep_idx = fact_str.index('(')

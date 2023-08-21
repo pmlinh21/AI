@@ -56,12 +56,14 @@ class Rule:
         conclusion = Fact.parse_fact(rule_str[: sep_index])
         premises = []
         fact_strings = rule_str[sep_index + 2:].split('),')
-
+        # print(fact_strings)
         for idx, fact_str in enumerate(fact_strings):
             if idx != len(fact_strings) - 1:
                 fact_str += ')'
+            # print(fact_str)
             fact = Fact.parse_fact(fact_str)
             premises.append(fact)
+        # print(premises)
         # duplicate_predicate = True
         return Rule(conclusion, premises)
 

@@ -35,7 +35,7 @@ def forward_chaining(kb, alpha):
             if not rule.may_trigger(last_generated_facts):
                 continue
             
-            print(rule.premises)
+            # print(rule)
             num_premises = rule.get_premise_count()
             potential_facts = kb.get_potential_facts(rule)
             # print(num_premises)
@@ -48,19 +48,19 @@ def forward_chaining(kb, alpha):
             # print(potential_premises)
         # Checking Substitutions and Applying Rule
             for premise_tuple in potential_premises:
-                premises = list(premise_tuple)
+                premises = [premise for premise in premise_tuple]
                 # print(premises)
                 theta = substitution(rule.premises, premises)
                 if not theta:
                     continue
-                # print(theta)
+                # print(theta, "\n")
                 # Creating a New Fact and Substituting            
                 new_fact = rule.conclusion.copy()
                 
                 theta.apply_substitution(new_fact)
                 # Checking and Adding New Fact
                 if new_fact not in new_facts and new_fact not in kb.facts:
-                    print(new_fact)
+                    # print(new_fact)
                     new_facts.add(new_fact)
                     phi = unify(new_fact, alpha, Substitution())
                     if phi:
@@ -70,13 +70,13 @@ def forward_chaining(kb, alpha):
                             return results
                     # Adding Substitution to Results
                         results.add(phi)
-                        print(results, "2")
+                        # print(results, "2")
 
         last_generated_facts = new_facts
         if not new_facts:
             if not results:
                 results.add('false')
-            print(results, "3")
+            # print(results, "3")
             return results
         # print(kb.facts)
         kb.facts.update(new_facts)
