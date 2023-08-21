@@ -9,12 +9,13 @@ from unify import unify
 from util import Substitution
 
 class Rule:
-    def __init__(self, conclusion=Fact(), premises=[], duplicate_predicate=False):
+    def __init__(self, conclusion=Fact(), premises=[]):
         self.conclusion = conclusion        
         self.premises = premises            
         self.operators = self.extract_operators()           
         self.premises.sort()
-        self.duplicate_predicate = duplicate_predicate
+        self.duplicate_predicate = self.check_duplicate_predicate()
+
     def __repr__(self):
         return '{} => {}'.format(' & '.join([str(condition) for condition in self.premises]), str(self.conclusion))
 
@@ -61,6 +62,6 @@ class Rule:
                 fact_str += ')'
             fact = Fact.parse_fact(fact_str)
             premises.append(fact)
-        duplicate_predicate = True
-        return Rule(conclusion, premises, duplicate_predicate)
+        # duplicate_predicate = True
+        return Rule(conclusion, premises)
 

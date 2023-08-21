@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[ ]:
-
-
 # Lớp "Fact" đại diện cho một vị từ logic với các thuộc tính khác nhau như phép toán, đối số và phủ định. 
 class Fact:
     def __init__(self, op='', args=[], negated=False):
@@ -53,13 +47,14 @@ class Fact:
         else:
             #fact_str = fact_str.strip().rstrip('.').replace(' ', '')
             op_start = 0
-            print("Parsing fact_str:", fact_str)
+            # print("Parsing fact_str:", fact_str)
             #sep_idx = fact_str.index('(')
             op_end = fact_str.index('(')
             op = fact_str[op_start:op_end]
             args_start = op_end + 1
-            args_end = len(fact_str) - 1
+            args_end = fact_str.index(')')
             #op = fact_str[:sep_idx]
             args = fact_str[args_start:args_end].split(',')
+            # print( "*",args)
         return Fact(op, args)
 

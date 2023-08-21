@@ -17,8 +17,8 @@ def unify(x, y, theta):
 
 def unify_var(var, x, theta):
    if theta.contains(var):
-      return unify(theta.substitute_of(var), x, theta)
+      return unify(theta.get_substitute(var), x, theta)
    if theta.contains(x):
-      return unify(var, theta.substitute_of(x), theta)
+      return unify(var, theta.get_substitute(x), theta)
    theta.bind(var, x)
    return theta

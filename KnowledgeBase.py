@@ -1,7 +1,4 @@
-#!/usr/bin/env python
-# coding: utf-8
 
-# In[ ]:
 
 
 # KnowledgeBase chịu trách nhiệm lưu trữ các sự kiện và quy tắc đại diện cho các mối quan hệ và thông tin trong cơ sở tri thức. 
@@ -23,29 +20,23 @@ from forward_chaining import forward_chaining
 class Sentence:
     @staticmethod
     def classify(sentence_str):
-        print("sentence_str: ", sentence_str)
+        # print("sentence_str: ", sentence_str)
         sentence_str = sentence_str.strip()
         if not sentence_str:
             return 'blank'
         if sentence_str.startswith('%'):
             return 'comment'
         if ':-' in sentence_str:
-            print("rule")
             return 'rule'
         return 'fact'
 
     @staticmethod
     def fetch_next(input_str):
         index = 0
-        next_str = input_str[index].strip()
-        if next_str.startswith('/*'):          
-            while not next_str.endswith('*/'):
-                index += 1
-                next_str += input_str[index].strip()
-        elif next_str:                         
-            while not next_str.endswith('.'):
-                index += 1
-                next_str += input_str[index].strip()
+        next_str = input_str[index].strip()   
+        while not next_str.endswith('.'):
+            index += 1
+            next_str += input_str[index].strip()
         return next_str, input_str[index + 1:]
     
 class KnowledgeBase:
@@ -54,9 +45,11 @@ class KnowledgeBase:
         self.rules = []
 
     def add_fact(self, fact):
+        # print(fact)
         self.facts.add(fact)
 
     def add_rule(self, rule):
+        # print(rule)
         self.rules.append(rule)
 
     def query(self, alpha):
@@ -64,9 +57,19 @@ class KnowledgeBase:
 
     def get_potential_facts(self, rule):
         facts = []
+        print("rule:",rule, "\n", rule.operators)
         for fact in self.facts:
+            # print("*")
+            # print(fact)
+            # print(fact.op)
+            # print("*")
             if rule.is_helpful(fact.op):
+                # print("*")
+                # print(fact)
+                # print(rule)
+                # print("*")
                 facts.append(fact)
+        # print(facts)
         return facts
 
     @staticmethod
